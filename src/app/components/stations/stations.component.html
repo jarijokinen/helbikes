@@ -1,0 +1,17 @@
+<agm-map 
+  *ngIf="stations" 
+  [latitude]="lat" 
+  [longitude]="lon"
+  [zoom]="zoom">
+  <agm-marker 
+    *ngFor="let station of stations" 
+    [latitude]="station.lat" 
+    [longitude]="station.lon"
+    [label]="{
+      color: 'white',
+      fontWeight: 'bold',
+      text: station.bikesAvailable.toString()
+    }"
+    [title]="station.name"
+  ></agm-marker>
+</agm-map>
